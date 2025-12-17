@@ -16,6 +16,26 @@
         </nav>
     </header>
     
+    <main>
+        <section class="task-form">
+            <form id="task-form">
+                <input 
+                    type="text" 
+                    id="task-input" 
+                    placeholder="Lägg till en ny task..."
+                    required
+                    aria-label="Task titel"
+                >
+                <select id="priority-select" aria-label="Prioritet">
+                    <option value="low">Låg prioritet</option>
+                    <option value="medium" selected>Medium prioritet</option>
+                    <option value="high">Hög prioritet</option>
+                </select>
+                <button type="submit">Lägg till</button>
+            </form>
+        </section>
+    </main>
+    
     <script src="app.js"></script>
 </body>
 </html>
