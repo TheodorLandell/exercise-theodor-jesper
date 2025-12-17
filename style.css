@@ -73,3 +73,53 @@ footer {
     text-align: center;
     font-size: 0.875rem;
 }
+.task-form {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+#task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+#task-input {
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#task-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+#priority-select {
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background-color: var(--color-white);
+}
+
+#task-form button[type="submit"] {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#task-form button[type="submit"]:hover {
+    background-color: var(--color-primary-dark);
+}
