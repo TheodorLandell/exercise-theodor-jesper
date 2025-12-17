@@ -123,3 +123,25 @@ footer {
 #task-form button[type="submit"]:hover {
     background-color: var(--color-primary-dark);
 }
+/* ============================================
+   RESPONSIVE DESIGN - Mobile First
+   ============================================ */
+
+/* Mobile Base (default) - redan implementerat ovan */
+
+/* Form responsiv */
+@media (min-width: 480px) {
+    #task-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    #task-input {
+        flex: 1;
+        min-width: 200px;
+    }
+    
+    #priority-select {
+        width: auto;
+    }
+}
