@@ -34,7 +34,20 @@
                 <button type="submit">Lägg till</button>
             </form>
         </section>
+        
+        <section class="task-list">
+            <ul id="tasks-container" aria-label="Lista med tasks">
+                <!-- Tasks renderas här via JavaScript -->
+            </ul>
+        </section>
     </main>
+    
+    <footer>
+        <p>Task Manager &copy; 2024</p>
+        <p class="task-count">
+            <span id="active-count">0</span> aktiva tasks
+        </p>
+    </footer>
     
     <script src="app.js"></script>
 </body>
