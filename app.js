@@ -102,3 +102,21 @@ function updateActiveCount() {
     const count = tasks.filter(task => !task.completed).length;
     activeCount.textContent = count;
 }
+function toggleComplete(taskId) {
+    const task = tasks.find(t => t.id === taskId);
+    if (task) {
+        task.completed = !task.completed;
+        renderTasks();
+        saveTasks();
+    }
+}
+
+// Event delegation for complete button
+tasksContainer.addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn-complete')) {
+        const taskItem = e.target.closest('.task-item');
+        if (taskItem) {
+            toggleComplete(taskItem.dataset.id);
+        }
+    }
+});
