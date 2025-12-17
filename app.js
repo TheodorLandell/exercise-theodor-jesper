@@ -120,3 +120,23 @@ tasksContainer.addEventListener('click', function(e) {
         }
     }
 });
+javascript// Delete task
+function deleteTask(taskId) {
+    tasks = tasks.filter(t => t.id !== taskId);
+    renderTasks();
+    saveTasks();
+}
+
+// Event delegation for delete button
+tasksContainer.addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn-delete')) {
+        const taskItem = e.target.closest('.task-item');
+        if (taskItem) {
+            if (confirm('Är du säker på att du vill ta bort denna task?')) {
+                deleteTask(taskItem.dataset.id);
+            }
+        }
+    }
+});
+bashgit add app.js
+git commit -m "feat: add delete task feature"
