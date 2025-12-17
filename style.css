@@ -1,4 +1,5 @@
-
+/* CSS Reset */
+*,
 *::before,
 *::after {
     margin: 0;
@@ -21,7 +22,7 @@
     --radius: 8px;
 }
 
-css/* Typografi */
+/* Typografi */
 html {
     font-size: 16px;
 }
@@ -73,6 +74,8 @@ footer {
     text-align: center;
     font-size: 0.875rem;
 }
+
+/* Form Styling */
 .task-form {
     background-color: var(--color-white);
     padding: 1.5rem;
@@ -123,11 +126,87 @@ footer {
 #task-form button[type="submit"]:hover {
     background-color: var(--color-primary-dark);
 }
+
+/* Filter Buttons */
+.filter-btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--color-white);
+    background-color: transparent;
+    color: var(--color-white);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.875rem;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+/* Task List */
+.task-list ul {
+    list-style: none;
+}
+
+.task-item {
+    background-color: var(--color-white);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--color-text-light);
+}
+
+.task-item .task-text {
+    flex: 1;
+}
+
+.task-item .priority {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.priority.low { background-color: #d4edda; color: #155724; }
+.priority.medium { background-color: #fff3cd; color: #856404; }
+.priority.high { background-color: #f8d7da; color: #721c24; }
+
+.task-item button {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.task-item button:hover {
+    opacity: 0.8;
+}
+
+.btn-complete {
+    background-color: var(--color-success);
+    color: white;
+}
+
+.btn-delete {
+    background-color: var(--color-danger);
+    color: white;
+}
+
 /* ============================================
    RESPONSIVE DESIGN - Mobile First
    ============================================ */
-
-/* Mobile Base (default) - redan implementerat ovan */
 
 /* Form responsiv */
 @media (min-width: 480px) {
@@ -145,6 +224,7 @@ footer {
         width: auto;
     }
 }
+
 /* Tablet */
 @media (min-width: 768px) {
     header {
@@ -172,6 +252,7 @@ footer {
         font-size: 2rem;
     }
 }
+
 /* Desktop */
 @media (min-width: 1024px) {
     main {
