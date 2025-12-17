@@ -46,3 +46,59 @@ taskForm.addEventListener('submit', function(e) {
         saveTasks();
     }
 });
+
+javascript// Render single task
+function renderTask(task) {
+    const li = document.createElement('li');
+    li.className = `task-item ${task.completed ? 'completed' : ''}`;
+    li.dataset.id = task.id;
+    
+    li.innerHTML = `
+        <button class="btn-complete" aria-label="Markera som ${task.completed ? 'ej klar' : 'klar'}">
+            ${task.completed ? '↩️' : '✓'}
+        </button>
+        <span class="task-text">${escapeHtml(task.title)}</span>
+        <span class="priority ${task.priority}">${task.priority}</span>
+        <button class="btn-delete" aria-label="Ta bort task">🗑️</button>
+    `;
+    
+    return li;
+}
+
+// Escape HTML to prevent XSS
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+// Render all tasks
+function renderTasks() {
+    const filteredTasks = filterTasks(tasks, currentFilter);
+    
+    tasksContainer.innerHTML = '';
+    
+    filteredTasks.forEach(task => {
+        tasksContainer.appendChild(renderTask(task));
+    });
+    
+    updateActiveCount();
+}
+
+// Filter tasks
+function filterTasks(tasks, filter) {
+    switch (filter) {
+        case 'active':
+            return tasks.filter(task => !task.completed);
+        case 'completed':
+            return tasks.filter(task => task.completed);
+        default:
+            return tasks;
+    }
+}
+
+// Update active count
+function updateActiveCount() {
+    const count = tasks.filter(task => !task.completed).length;
+    activeCount.textContent = count;
+}
